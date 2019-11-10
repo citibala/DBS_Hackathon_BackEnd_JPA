@@ -1,0 +1,55 @@
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
+<br>
+<br>
+<br>
+<div class="btn-group">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Type <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Equity Future</a></li>
+        <li><a href="#">Index Future</a></li>
+      </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Contract Name <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">NIFTY</a></li>
+          <li><a href="#">Reliance FUTURE</a></li>
+          <li><a href="#">JP FUTURE</a></li>
+        </ul>
+      </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+<table class="table .table-striped">
+  <thead scope="row" class=".thead-dark">
+  <th scope="col" >Level Of Equity</th>
+  <th scope="col">Unique Idetifier</th>
+  <th scope="col" >Equity Name</th>
+
+  <th scope="col" >Top Level Trade Type</th>
+  <th scope="col" >Unique Identifier of Top Level</th>
+  <th scope="col" >Trade Id </th>
+  <th scope="col" >Current Market Value</th>
+
+  </thead>
+  <tbody>
+  <tr scope="row" *ngFor="let report of reports | async">
+      <td>{{report.equityLevel}}</td>
+      <td>{{report.id}}</td>
+      <td>{{report.name}}</td>
+      <td>{{report.tradeType}}</td>
+      <td>{{report.topLevelId}}</td>
+      <td>{{report.tradeId}}</td>
+      <td>{{report.marketValue}}</td>
+  </tr>
+  </tbody>
+  </table>
